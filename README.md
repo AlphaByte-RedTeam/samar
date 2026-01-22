@@ -1,5 +1,7 @@
 # Samar ⚔️
 
+![samar output](./assets/output.png)
+
 **Samar** is a **Shadow Workspace Manager** designed to let AI Agents (like Claude, Gemini, or Devin) edit your code safely.
 
 It creates a **Shadow Copy** of your project in a temporary directory. The Agent works there.
@@ -85,6 +87,7 @@ Samar automatically symlinks `node_modules`, `.next`, `dist`, etc., to save disk
 | `samar mcp` | Start the MCP Server (Agent Mode). |
 | `samar status` | Show file counts, ignored files, and heavy links. |
 | `samar init` | Generate a default `.samarignore`. |
+| `samar help` | Show help on how to use `samar` |
 
 ## 🛡️ Strict Mode
 
