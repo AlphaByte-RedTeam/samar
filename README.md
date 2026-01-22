@@ -100,6 +100,21 @@ In Strict Mode, Samar becomes aggressive. If an Agent tries to `echo "SECRET=123
 2.  Samar **IMMEDIATELY DELETES** the file in Shadow.
 3.  The file never touches your Real project.
 
+## Background
+
+Why did I start this project? Because when I was working with a coding agent, they often tried to access sensitive files or directories. If you explicitly asked the agent to read `.env` files, the agent will say "No, I cannot do that because I was programmed to not read sensitive files.". But the reality? The agent can still access the file if you don't explicitly deny it. A coding agent is a goal-based AI that will do anything to achieve its goals, even if it means accessing sensitive files or directories.
+
+Here's a prove
+![proof 1](./assets/prove1.png)
+![proof 2](./assets/prove2.png)
+
+And here's the contradiction, the agent is saying I wasn't allowed to access secret files.
+![cons](./assets/cons.png)
+
+So, I made this to prevent agents from accessing sensitive files or directories.
+
+If you have suggestions, please open an issue or submit a pull request.
+
 ## License
 
 MIT
