@@ -1,0 +1,23 @@
+# Samar Ignore File
+# Patterns here will be HIDDEN from the Shadow Workspace.
+
+# Build Artifacts (Recommended to symlink via ConfigManager instead of copying)
+node_modules/
+.next/
+dist/
+build/
+.cache/
+
+# Environment & Secrets (ALWAYS IGNORED by default, but listed here for clarity)
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Git
+.git/
+
+# OS Files
+.DS_Store
+Thumbs.db
