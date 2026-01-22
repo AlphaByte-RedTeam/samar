@@ -1,6 +1,6 @@
 {
   "name": "samar",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Shadow Workspace Manager for Safe AI Agent Execution with MCP Support",
   "main": "dist/index.js",
   "type": "module",
