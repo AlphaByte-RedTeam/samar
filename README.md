@@ -102,4 +102,4 @@ In Strict Mode, Samar becomes aggressive. If an Agent tries to `echo "SECRET=123
 
 ## License
 
-ISC
+MIT

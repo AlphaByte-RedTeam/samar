@@ -1,19 +1,39 @@
 {
   "name": "samar",
   "version": "1.0.0",
-  "description": "",
+  "description": "Shadow Workspace Manager for Safe AI Agent Execution with MCP Support",
   "main": "dist/index.js",
   "type": "module",
   "bin": {
     "samar": "./dist/index.js"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AlphaByte-RedTeam/samar.git"
+  },
   "scripts": {
     "build": "tsc",
+    "prepublishOnly": "npm run build",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "keywords": [
+    "ai",
+    "agent",
+    "security",
+    "shadow-workspace",
+    "mcp",
+    "model-context-protocol",
+    "sandbox",
+    "claude",
+    "tool"
+  ],
+  "author": "Andrew Virya Victorio a.k.a AlphaByte RedTeam",
+  "license": "MIT",
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
   "packageManager": "pnpm@10.17.0",
   "dependencies": {
     "@modelcontextprotocol/sdk": "^1.25.3",
