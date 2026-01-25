@@ -30,7 +30,11 @@ export class WatcherService {
 
     // 1. Watch REAL Project (Source of Truth)
     const realWatcher = chokidar.watch(this.projectRoot, {
-      ignored: (path) => this.config.isIgnored(path),
+      ignored: [
+        '**/node_modules/**',
+        '**/.git/**',
+        (path) => this.config.isIgnored(path)
+      ],
       ignoreInitial: true,
       persistent: true
     });
@@ -40,7 +44,8 @@ export class WatcherService {
     // 2. Watch SHADOW Workspace (Agent's Playground)
     const shadowWatcher = chokidar.watch(this.shadowRoot, {
       ignoreInitial: true,
-      persistent: true
+      persistent: true,
+      followSymlinks: false
     });
 
     shadowWatcher.on('all', (event, filePath) => this.handleShadowChange(event, filePath));
@@ -105,6 +110,13 @@ export class WatcherService {
   private async handleShadowChange(event: string, sourcePath: string) {
     const relativePath = path.relative(this.shadowRoot, sourcePath);
     const targetPath = path.join(this.projectRoot, relativePath);
+
+    // PROTECTION: Do not allow operations on Heavy Directories (Symlinks)
+    // If the agent deletes the symlink to node_modules, we DO NOT want to delete real node_modules.
+    if (this.config.isHeavy(path.basename(sourcePath))) {
+       // console.log(chalk.gray(`Protected Heavy Dir touched: ${relativePath}`));
+       return;
+    }
 
     // Check if this was an echo from a real sync
     if (this.pendingShadowSyncs.has(sourcePath)) {
